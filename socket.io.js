@@ -1,4 +1,5 @@
 /*! Socket.IO.js build:0.9.16, development. Copyright(c) 2011 LearnBoost <dev@learnboost.com> MIT Licensed */
+var tmpIO = io;
 
 var io = ('undefined' === typeof module ? {} : module.exports);
 (function() {
@@ -3325,3 +3326,6 @@ if (typeof define === "function" && define.amd) {
   define([], function () { return io; });
 }
 })();
+
+window.pebblepresenter_io = window.io;
+window.io = tmpIO;

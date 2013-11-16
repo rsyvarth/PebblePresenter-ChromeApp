@@ -1,15 +1,21 @@
 // (function(){
 	console.log('Start loading the extension');
 
-	var html = '<ul id="msg" style="border: 1px solid #000; background: #eee; width: 500px; word-wrap: break-word; position: absolute; top: 0px; right: 0px; z-index: 1000000000">Hello</ul>';
-	document.getElementsByTagName('body')[0].innerHTML = html + document.getElementsByTagName('body')[0].innerHTML;
+	// var html = '';
+	// document.getElementsByTagName('body')[0].innerHTML += html;
 
+	var s = document.createElement('ul');
+	s.id = 'msg';
+	s.style.cssText="border: 1px solid #000; background: #eee; width: 300px; word-wrap: break-word; position: fixed; top: 0px; right: 0px; z-index: 1000000000; max-height: 100px; overflow-y: scroll;";
+	s.innerHTML = 'Hello';
+	document.documentElement.appendChild(s);
 
+	var pebblepresenter_io = window.pebblepresenter_io;
 	var pebblePresenter = {
 		init: function(){
 			// Initialize the socket connection
 
-			var socket = io.connect('http://pebblepresenter.syvarth.com');
+			var socket = pebblepresenter_io.connect('http://pebblepresenter.syvarth.com');
 			pebblePresenter.data = {
 				page_url: document.URL,
 				pebble_auth: null,
@@ -34,9 +40,9 @@
 		log: function( data ) {
 			var elem = document.getElementById('msg');
 			elem.innerHTML = '<li>'+JSON.stringify(data)+'</li>' + elem.innerHTML;
+			console.log(data);
 		}
 	};
-
 
 
 	pebblePresenter.init();
