@@ -35,7 +35,6 @@
 				s.src = "https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js";
 				s.onload = function() {
 				    this.parentNode.removeChild(this);
-				    pebblePresenter.bindEvents();
 				};
 				(document.head||document.documentElement).appendChild(s);
 			}
@@ -49,6 +48,7 @@
 			socket.on('presentationInfo', function(data){
 				pebblePresenter.log(data);
 				pebblePresenter.renderBox(data);
+				pebblePresenter.bindEvents();
 			});
 
 			socket.on('changeSlide', function(data){
