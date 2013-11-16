@@ -1,10 +1,10 @@
 {
-  "name": "Chrome Extension",
+  "name": "Pebble Presenter",
   "version": "1.0",
   "manifest_version": 2,
   "content_scripts": [{
-      "matches": ["http://*/*","https://*/*","ftp://*/*"],
-      "js": ["background.js"]
+      "matches": ["http://www.haikudeck.com/p*","https://docs.google.com/presentation/*","https://docs.google.com/*presentation/*"],
+      "js": ["background.js","socket.io.js"]
   }],
-  "web_accessible_resources": ["extension.js","socket.io.js"]
+  "web_accessible_resources": ["socket.io.js","extension.js","https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"]
 }
