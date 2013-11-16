@@ -1,0 +1,10 @@
+{
+  "name": "Chrome Extension",
+  "version": "1.0",
+  "manifest_version": 2,
+  "content_scripts": [{
+      "matches": ["http://*/*","https://*/*","ftp://*/*"],
+      "js": ["background.js"]
+  }],
+  "web_accessible_resources": ["extension.js","socket.io.js"]
+}
